@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentGradesManagement.Classes
 {
-    internal class Subject
+    public class Subject
     {
         public int subjectId { get; set; }
         public string subjectName { get; set; }

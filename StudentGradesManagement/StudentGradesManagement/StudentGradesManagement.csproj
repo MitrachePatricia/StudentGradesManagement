@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,25 +50,43 @@
     <Compile Include="Classes\Dashboard.cs" />
     <Compile Include="Classes\Student.cs" />
     <Compile Include="Classes\Subject.cs" />
+    <Compile Include="Forms\AddDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddDashboard.Designer.cs">
+      <DependentUpon>AddDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddSubject.Designer.cs">
+      <DependentUpon>AddSubject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Student.cs">
+    <Compile Include="Forms\AddStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Student.Designer.cs">
-      <DependentUpon>Student.cs</DependentUpon>
+    <Compile Include="Forms\AddStudent.Designer.cs">
+      <DependentUpon>AddStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AddDashboard.resx">
+      <DependentUpon>AddDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddSubject.resx">
+      <DependentUpon>AddSubject.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Student.resx">
-      <DependentUpon>Student.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AddStudent.resx">
+      <DependentUpon>AddStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

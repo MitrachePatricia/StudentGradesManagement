@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace StudentGradesManagement.Classes
 {
-    internal class Dashboard
+    public class Dashboard
     {
         public string dashboardId {  get; set; }
         public int finalGrade {  get; set; }
+
+        public Boolean hasCheated { get; set; }
 
         public int studentId;
         public int subjectId;
