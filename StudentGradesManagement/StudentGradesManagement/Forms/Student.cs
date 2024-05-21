@@ -8,13 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StudentGradesManagement
+namespace StudentGradesManagement.Forms
 {
-    public partial class Form1 : Form
+    public partial class AddStudent : Form
     {
-        public Form1()
+        public AddStudent()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
