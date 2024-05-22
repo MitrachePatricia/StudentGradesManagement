@@ -167,6 +167,7 @@
             this.tsbSaveReport.Name = "tsbSaveReport";
             this.tsbSaveReport.Size = new System.Drawing.Size(46, 36);
             this.tsbSaveReport.Text = "toolStripButton1";
+            this.tsbSaveReport.Click += new System.EventHandler(this.tsbSaveReport_Click);
             // 
             // tsbPrintReport
             // 

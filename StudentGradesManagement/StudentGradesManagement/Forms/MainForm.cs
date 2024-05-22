@@ -75,7 +75,8 @@ namespace StudentGradesManagement
         private void serializeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
-            if(sfd.ShowDialog() == DialogResult.OK)
+            sfd.Filter = "Binary File (*.bin)|*.bin";
+            if (sfd.ShowDialog() == DialogResult.OK)
             {
                 using (FileStream fs = File.Create(sfd.FileName))
                 {

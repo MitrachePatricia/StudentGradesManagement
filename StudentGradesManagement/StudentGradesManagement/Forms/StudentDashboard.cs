@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -92,6 +93,36 @@ namespace StudentGradesManagement.Forms
 
         private void toolStripStatusLabel1_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void tsbSaveReport_Click(object sender, EventArgs e)
+        {
+                List<Subject> subjects = new List<Subject>(Dashboard.Subjects);
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "Text file (*.txt)|*.txt";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                  {
+                    using (StreamWriter sw = new StreamWriter(sfd.FileName))
+                    {
+                        if (subjects.Count == 0)
+                        {
+                            sw.WriteLine("The studet is not enrolled in any classes.");
+                        }
+                    sw.WriteLine("The student with the id " + Dashboard.studentId +
+                        ",took " + subjects.Count + " classes.");
+                        foreach (Subject subject in subjects)
+                        {
+                        string line = "Subject: " +
+                            subject.subjectName + " with code " +
+                            subject.subjectCODE + " got the grade " +
+                            subject.finalGrade;
+                            sw.WriteLine(line);
+                        }
+                        sw.Close();
+
+                    }
+                }
             
         }
     }
