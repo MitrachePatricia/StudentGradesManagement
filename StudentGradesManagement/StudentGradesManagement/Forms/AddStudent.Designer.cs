@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddStudent));
             this.studName = new System.Windows.Forms.Label();
             this.tbSName = new System.Windows.Forms.TextBox();
             this.studGroup = new System.Windows.Forms.Label();
@@ -145,6 +146,7 @@
             this.Controls.Add(this.studGroup);
             this.Controls.Add(this.tbSName);
             this.Controls.Add(this.studName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddStudent";
             this.Text = "AddStudent";
             this.Load += new System.EventHandler(this.AddStudent_Load);

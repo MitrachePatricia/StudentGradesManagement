@@ -177,6 +177,7 @@
             this.tsbPrintReport.Name = "tsbPrintReport";
             this.tsbPrintReport.Size = new System.Drawing.Size(46, 36);
             this.tsbPrintReport.Text = "toolStripButton2";
+            this.tsbPrintReport.Click += new System.EventHandler(this.tsbPrintReport_Click);
             // 
             // StudentDashboard
             // 
@@ -189,6 +190,7 @@
             this.Controls.Add(this.btnEditSubj);
             this.Controls.Add(this.btnAddSubj);
             this.Controls.Add(this.lvGrades);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StudentDashboard";
             this.Text = "DisplayGrades";
             this.statusStrip1.ResumeLayout(false);

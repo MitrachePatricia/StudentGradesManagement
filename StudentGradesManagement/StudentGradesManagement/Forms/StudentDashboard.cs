@@ -14,6 +14,8 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using static System.Windows.Forms.LinkLabel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Drawing.Printing;
+
 
 namespace StudentGradesManagement.Forms
 {
@@ -124,6 +126,16 @@ namespace StudentGradesManagement.Forms
                     }
                 }
             
+        }
+
+        private void tsbPrintReport_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void printPreviewDialog1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
