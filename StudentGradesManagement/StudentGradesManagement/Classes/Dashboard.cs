@@ -8,17 +8,16 @@ namespace StudentGradesManagement.Classes
 {
     public class Dashboard
     {
-        public string dashboardId {  get; set; }
-        public int finalGrade {  get; set; }
+        public int dashboardId {  get; set; }
 
-        public Boolean hasCheated { get; set; }
+        public DateTime date { get; set; }
 
         public int studentId;
-        public int subjectId;
+        public List<Subject> Subjects { get; set; }
         public List<Student> Students { get; set; }
-
         public Dashboard()
         {
+            Subjects = new List<Subject>();
             Students = new List<Student>();
         }
     }

@@ -41,15 +41,30 @@ namespace StudentGradesManagement.Forms
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            Subject.subjectId = (int)nudId.Value;
-            Subject.subjectName = tbSName.Text;
+            Subject.subjectCODE = tbSubjectCODE.Text;
+            Subject.subjectName = cbSubjName.Text;
             Subject.profName = tbPName.Text;
             Subject.noCredits = (int)nudCredits.Value;
+            Subject.finalGrade = (int)nudGrade.Value;
         }
 
         private void nudId_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbSubjectCODE_Validating(object sender, CancelEventArgs e)
+        {
+            if (tbSubjectCODE.Text[0] != 'I' || tbSubjectCODE.Text[1] != 'E')
+            {
+                e.Cancel = true;
+                errorSubjCODE.SetError((Control)sender, "This subject is not part of the 'Informatic Economics' profile.");
+            }
         }
     }
 }

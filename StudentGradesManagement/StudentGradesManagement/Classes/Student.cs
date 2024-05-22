@@ -8,6 +8,7 @@ namespace StudentGradesManagement.Classes
 {
     public class Student
     {
+        public Dashboard Dashboard { get; set; }
         public int studentId {  get; set; }
 
         public string studentName {  get; set; }
@@ -16,7 +17,6 @@ namespace StudentGradesManagement.Classes
 
         public Student() 
         {
-            Subjects = new List<Subject>();
         }
 
         public Student(int studentId, string studentName, string groupNo) : this()
@@ -25,7 +25,6 @@ namespace StudentGradesManagement.Classes
             this.studentName = studentName;
             this.groupNo = groupNo;
         }   
-        public List<Subject> Subjects { get; set; }
 
         
     }

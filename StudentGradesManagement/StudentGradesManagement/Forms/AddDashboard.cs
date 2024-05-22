@@ -21,13 +21,24 @@ namespace StudentGradesManagement.Forms
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            Dashboard.subjectId = (int)nudSubId.Value;
-            Dashboard.finalGrade = (int)nudGrade.Value;
-            Dashboard.hasCheated = cbCheated.Checked;
+            Dashboard.Students.Clear();
+            Dashboard.dashboardId = (int)nudDID.Value;
+            Dashboard.studentId = (int)nudSubId.Value;
+            Dashboard.date = DateTime.Now;
 
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddDashboard_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpDate_ValueChanged(object sender, EventArgs e)
         {
 
         }
