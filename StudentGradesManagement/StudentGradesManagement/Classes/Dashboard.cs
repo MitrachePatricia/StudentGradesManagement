@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentGradesManagement.Classes
 {
+    [Serializable]
     public class Dashboard
     {
         public int dashboardId {  get; set; }

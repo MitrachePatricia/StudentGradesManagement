@@ -38,8 +38,10 @@
             this.nudStudId = new System.Windows.Forms.NumericUpDown();
             this.btnOk = new System.Windows.Forms.Button();
             this.errorStudName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nudStudId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorStudName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // studName
@@ -126,6 +128,10 @@
             // 
             this.errorStudName.ContainerControl = this;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // AddStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -144,6 +150,7 @@
             this.Load += new System.EventHandler(this.AddStudent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudStudId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorStudName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,5 +167,6 @@
         private System.Windows.Forms.NumericUpDown nudStudId;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.ErrorProvider errorStudName;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

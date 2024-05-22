@@ -40,12 +40,18 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.serializeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deserializeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.detailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Add_Student
             // 
-            this.Add_Student.Location = new System.Drawing.Point(139, 56);
+            this.Add_Student.Location = new System.Drawing.Point(146, 662);
             this.Add_Student.Name = "Add_Student";
             this.Add_Student.Size = new System.Drawing.Size(194, 47);
             this.Add_Student.TabIndex = 0;
@@ -55,7 +61,7 @@
             // 
             // btnEditStud
             // 
-            this.btnEditStud.Location = new System.Drawing.Point(457, 56);
+            this.btnEditStud.Location = new System.Drawing.Point(448, 662);
             this.btnEditStud.Name = "btnEditStud";
             this.btnEditStud.Size = new System.Drawing.Size(194, 47);
             this.btnEditStud.TabIndex = 1;
@@ -65,7 +71,7 @@
             // 
             // delete_Student
             // 
-            this.delete_Student.Location = new System.Drawing.Point(762, 56);
+            this.delete_Student.Location = new System.Drawing.Point(736, 662);
             this.delete_Student.Name = "delete_Student";
             this.delete_Student.Size = new System.Drawing.Size(194, 47);
             this.delete_Student.TabIndex = 2;
@@ -81,9 +87,9 @@
             this.chGroup});
             this.lvStudent.FullRowSelect = true;
             this.lvStudent.HideSelection = false;
-            this.lvStudent.Location = new System.Drawing.Point(74, 125);
+            this.lvStudent.Location = new System.Drawing.Point(78, 77);
             this.lvStudent.Name = "lvStudent";
-            this.lvStudent.Size = new System.Drawing.Size(912, 513);
+            this.lvStudent.Size = new System.Drawing.Size(936, 561);
             this.lvStudent.TabIndex = 3;
             this.lvStudent.UseCompatibleStateImageBehavior = false;
             this.lvStudent.View = System.Windows.Forms.View.Details;
@@ -127,23 +133,77 @@
             this.deserializeToolStripMenuItem.Name = "deserializeToolStripMenuItem";
             this.deserializeToolStripMenuItem.Size = new System.Drawing.Size(203, 38);
             this.deserializeToolStripMenuItem.Text = "Deserialize";
+            this.deserializeToolStripMenuItem.Click += new System.EventHandler(this.deserializeToolStripMenuItem_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.detailsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1084, 40);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripMenuItem,
+            this.loadToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(71, 36);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.S)));
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // loadToolStripMenuItem
+            // 
+            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
+            this.loadToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.L)));
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.loadToolStripMenuItem.Text = "Load";
+            this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
+            // 
+            // detailsToolStripMenuItem
+            // 
+            this.detailsToolStripMenuItem.Name = "detailsToolStripMenuItem";
+            this.detailsToolStripMenuItem.Size = new System.Drawing.Size(106, 36);
+            this.detailsToolStripMenuItem.Text = "Details";
+            this.detailsToolStripMenuItem.Click += new System.EventHandler(this.detailsToolStripMenuItem_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1061, 680);
+            this.ClientSize = new System.Drawing.Size(1084, 751);
             this.ContextMenuStrip = this.contextMenuStrip1;
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.lvStudent);
             this.Controls.Add(this.delete_Student);
             this.Controls.Add(this.btnEditStud);
             this.Controls.Add(this.Add_Student);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "MainForm";
             this.Text = "Students";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.contextMenuStrip1.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -159,6 +219,11 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem serializeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deserializeToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem detailsToolStripMenuItem;
     }
 }
 

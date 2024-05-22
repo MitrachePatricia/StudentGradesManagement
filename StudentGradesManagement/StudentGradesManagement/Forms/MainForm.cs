@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -14,12 +15,14 @@ using System.Windows.Forms;
 
 namespace StudentGradesManagement
 {
+    [Serializable]
     public partial class MainForm : Form
     {
-        public Dashboard Dashboard {  get; set; }
+        public Classes.Dashboard Dashboard {  get; set; }
+        
         public MainForm()
         {
-            Dashboard = new Dashboard();
+            Dashboard = new Classes.Dashboard();
             InitializeComponent();
         }
 
@@ -40,6 +43,7 @@ namespace StudentGradesManagement
         {
             AddStudent form = new AddStudent();
             Student student = new Student();
+            
             form.Student = student;
             if (form.ShowDialog() == DialogResult.OK)
             {
@@ -93,19 +97,92 @@ namespace StudentGradesManagement
 
         private void lvStudent_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            StudentGrades sg = new StudentGrades(); 
+            Forms.StudentDashboard sg = new Forms.StudentDashboard(); 
             sg.ShowDialog();
         }
 
         private void delete_Student_Click(object sender, EventArgs e)
         {
+            if (lvStudent.SelectedItems.Count == 0)
+            {
+                
 
+            }
             if (lvStudent.SelectedItems.Count == 1)
             {
                 Student student = lvStudent.SelectedItems[0].Tag as Student;
                 Dashboard.Students.Remove(student);
                 DisplayStudents();
             }
+
+            
+        }
+
+        private void deserializeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog(); 
+            if(ofd.ShowDialog() == DialogResult.OK)
+            {
+                using(FileStream fs = File.OpenRead(ofd.FileName))
+                {
+                    BinaryFormatter bf = new BinaryFormatter();
+                    Dashboard = (Classes.Dashboard)bf.Deserialize(fs);
+                    DisplayStudents();
+                }
+            }
+        }
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Alt && e.KeyCode == Keys.C)
+            {
+                Add_Student_Click(sender, e);
+                return;
+            }
+
+            if(e.Alt && e.KeyCode == Keys.E)
+            {
+                btnEditStud_Click(sender, e);
+                return;
+            }
+
+            if(e.Alt && e.KeyCode == Keys.D)
+            {
+                delete_Student_Click(sender, e);
+                return;
+            }
+
+            if(e.Alt && e.KeyCode == Keys.G)
+            {
+                Forms.StudentDashboard sg = new Forms.StudentDashboard(); 
+                sg.ShowDialog();
+            }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void detailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Details d = new Forms.Details();
+            d.ShowDialog();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

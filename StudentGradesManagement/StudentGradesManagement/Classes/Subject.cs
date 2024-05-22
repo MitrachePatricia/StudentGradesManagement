@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudentGradesManagement.Classes
 {
+    [Serializable]
     public class Subject
     {
         public string subjectCODE { get; set; }
@@ -17,13 +18,51 @@ namespace StudentGradesManagement.Classes
 
         public Subject() { }
 
-        public Subject(string subjectCODE, string subjectName, string profName, int finalGrade, int noCredits) : this()
+        public Subject(string subjectName, int finalGrade) : this()
         {
-            this.subjectCODE = subjectCODE;
             this.subjectName = subjectName;
-            this.profName = profName;
             this.finalGrade = finalGrade;
-            this.noCredits = noCredits;
+        }
+        public void AutoSubj()
+        {
+            switch (subjectName)
+            {
+                case "Programare evolutivă și algoritmi genetici":
+                    this.subjectCODE = "IE090";
+                    this.noCredits = 4;
+                    this.profName = "Denis Mihai";
+                    break;
+                case "Managementul riscului în afaceri internaționale":
+                    this.subjectCODE = "IE091";
+                    this.noCredits = 3;
+                    this.profName = "John Lecter";
+                    break;
+                case "Structuri de date":
+                    this.subjectCODE = "IE092";
+                    this.noCredits = 4;
+                    this.profName = "Katarina Bendon";
+                    break;
+                case "Programare multiparadigmă - Java":
+                    this.subjectCODE = "IE093";
+                    this.noCredits = 4;
+                    this.profName = "Marian Georgescu";
+                    break;
+                case "Programarea aplicațiilor Windows":
+                    this.subjectCODE = "IE094";
+                    this.noCredits = 4;
+                    this.profName = "Tomas Angelescu";
+                    break;
+                case "SGBD Oracle":
+                    this.subjectCODE = "IE095";
+                    this.noCredits = 4;
+                    this.profName = "Jeriza Popescu";
+                    break;
+                case "Macroeconomie cantitativă":
+                    this.subjectCODE = "IE096";
+                    this.noCredits = 4;
+                    this.profName = "Majorie Handau";
+                    break;
+            }
         }
     }
 }

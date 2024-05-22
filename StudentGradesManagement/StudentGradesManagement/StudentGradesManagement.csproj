@@ -62,11 +62,17 @@
     <Compile Include="Forms\AddSubject.Designer.cs">
       <DependentUpon>AddSubject.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\StudentGrades.cs">
+    <Compile Include="Forms\Details.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\StudentGrades.Designer.cs">
-      <DependentUpon>StudentGrades.cs</DependentUpon>
+    <Compile Include="Forms\Details.Designer.cs">
+      <DependentUpon>Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StudentDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StudentDashboard.Designer.cs">
+      <DependentUpon>StudentDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -88,8 +94,11 @@
     <EmbeddedResource Include="Forms\AddSubject.resx">
       <DependentUpon>AddSubject.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\StudentGrades.resx">
-      <DependentUpon>StudentGrades.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Details.resx">
+      <DependentUpon>Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StudentDashboard.resx">
+      <DependentUpon>StudentDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

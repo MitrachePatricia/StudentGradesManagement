@@ -36,15 +36,14 @@ namespace StudentGradesManagement.Forms
 
         private void AddSubject_Load(object sender, EventArgs e)
         {
-
+            cbSubjName.Text = Subject.subjectName;
+            nudGrade.Value = Subject.finalGrade;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            Subject.subjectCODE = tbSubjectCODE.Text;
             Subject.subjectName = cbSubjName.Text;
-            Subject.profName = tbPName.Text;
-            Subject.noCredits = (int)nudCredits.Value;
+            Subject.AutoSubj();
             Subject.finalGrade = (int)nudGrade.Value;
         }
 
@@ -60,11 +59,21 @@ namespace StudentGradesManagement.Forms
 
         private void tbSubjectCODE_Validating(object sender, CancelEventArgs e)
         {
-            if (tbSubjectCODE.Text[0] != 'I' || tbSubjectCODE.Text[1] != 'E')
+            
+        }
+
+        private void nudGrade_Validating(object sender, CancelEventArgs e)
+        {
+            if (nudGrade.Value < 1 || nudGrade.Value > 10)
             {
                 e.Cancel = true;
-                errorSubjCODE.SetError((Control)sender, "This subject is not part of the 'Informatic Economics' profile.");
+                errorProvider1.SetError((Control)sender, "This grade is not acceptable!!");
             }
+        }
+
+        private void nudGrade_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
