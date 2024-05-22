@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -19,11 +20,92 @@ namespace StudentGradesManagement
     public partial class MainForm : Form
     {
         public Classes.Dashboard Dashboard {  get; set; }
-        
+
+        private string ConnectionString = "Data Source = Student.sqlite";
+
         public MainForm()
         {
             Dashboard = new Classes.Dashboard();
             InitializeComponent();
+        }
+
+        private void CreateStudent(Student student)
+        {
+            string query = "INSERT INTO Student(studentId, studentName, groupNo) VALUES " +
+                "(@studentId, @studentName, @groupNo); ";
+
+            using(SQLiteConnection connection = new SQLiteConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@studentId", student.studentId);
+                    command.Parameters.AddWithValue("@studentName", student.studentName.ToString());
+                    command.Parameters.AddWithValue("@groupNo", student.groupNo.ToString());
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        private void ReadStudent()
+        {
+            Dashboard.Students.Clear();
+            string query = "SELECT * FROM Student";
+
+            using (SQLiteConnection connection = new SQLiteConnection(ConnectionString))
+            {
+                connection.Open();
+
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        long studentId = (long)reader["studentId"];
+                        string studentName = (string)reader["studentName"];
+                        string groupNo = (string)reader["groupNo"];
+
+                        Student student = new Student((int)studentId, studentName, groupNo);
+                        Dashboard.Students.Add(student);
+                    }
+                }
+            }
+        }
+
+        private void DeleteStudent(int studentId)
+        {
+            string query = "DELETE FROM Student WHERE studentId=@studentId;";
+
+            using (SQLiteConnection connection = new SQLiteConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@studentId", studentId);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        private void UpdateStudent(Student student)
+        {
+            string query = "UPDATE Student SET studentId = @studentId,"
+                +"studentName = @studentName, groupNo = @groupNo WHERE studentId = @studentId";
+
+            using (SQLiteConnection connection = new SQLiteConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@studentId", student.studentId);
+                    command.Parameters.AddWithValue("@studentName", student.studentName);
+                    command.Parameters.AddWithValue("@groupNo", student.groupNo);
+
+                    command.ExecuteNonQuery();  
+
+                }
+            }
         }
 
         private void DisplayStudents()
@@ -50,6 +132,8 @@ namespace StudentGradesManagement
                 Dashboard.Students.Add(student);
                 DisplayStudents();
             }
+
+            CreateStudent(student);
         }
 
         private void btnDisplayDashboard_Click(object sender, EventArgs e)
@@ -59,16 +143,21 @@ namespace StudentGradesManagement
 
         private void btnEditStud_Click(object sender, EventArgs e)
         {
-            AddStudent form = new AddStudent();
+            //AddStudent form = new AddStudent();
+            
 
             if (lvStudent.SelectedItems.Count == 1)
             {
                 Student student = lvStudent.SelectedItems[0].Tag as Student;
-                form.Student = student;
+                //form.Student = student;
+                AddStudent form = new AddStudent { Student = student };
                 if (form.ShowDialog() == DialogResult.OK)
                 {
+                    UpdateStudent(form.Student);
+                    ReadStudent();
                     DisplayStudents();
                 }
+
             }
         }
 
@@ -88,7 +177,8 @@ namespace StudentGradesManagement
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            ReadStudent();
+            DisplayStudents();
         }
 
         private void lvStudent_SelectedIndexChanged(object sender, EventArgs e)
@@ -104,15 +194,13 @@ namespace StudentGradesManagement
 
         private void delete_Student_Click(object sender, EventArgs e)
         {
-            if (lvStudent.SelectedItems.Count == 0)
-            {
-                
-
-            }
             if (lvStudent.SelectedItems.Count == 1)
             {
                 Student student = lvStudent.SelectedItems[0].Tag as Student;
-                Dashboard.Students.Remove(student);
+                //Dashboard.Students.Remove(student);
+                //DisplayStudents();
+                DeleteStudent(student.studentId);
+                ReadStudent();
                 DisplayStudents();
             }
 

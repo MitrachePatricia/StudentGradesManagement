@@ -43,7 +43,6 @@
             this.slClasses = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbSaveReport = new System.Windows.Forms.ToolStripButton();
-            this.tsbPrintReport = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -151,8 +150,7 @@
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbSaveReport,
-            this.tsbPrintReport});
+            this.tsbSaveReport});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1231, 42);
@@ -168,16 +166,6 @@
             this.tsbSaveReport.Size = new System.Drawing.Size(46, 36);
             this.tsbSaveReport.Text = "toolStripButton1";
             this.tsbSaveReport.Click += new System.EventHandler(this.tsbSaveReport_Click);
-            // 
-            // tsbPrintReport
-            // 
-            this.tsbPrintReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbPrintReport.Image = ((System.Drawing.Image)(resources.GetObject("tsbPrintReport.Image")));
-            this.tsbPrintReport.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbPrintReport.Name = "tsbPrintReport";
-            this.tsbPrintReport.Size = new System.Drawing.Size(46, 36);
-            this.tsbPrintReport.Text = "toolStripButton2";
-            this.tsbPrintReport.Click += new System.EventHandler(this.tsbPrintReport_Click);
             // 
             // StudentDashboard
             // 
@@ -218,6 +206,5 @@
         private System.Windows.Forms.ToolStripStatusLabel slClasses;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbSaveReport;
-        private System.Windows.Forms.ToolStripButton tsbPrintReport;
     }
 }

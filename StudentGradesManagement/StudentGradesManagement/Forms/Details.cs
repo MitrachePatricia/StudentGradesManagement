@@ -31,5 +31,10 @@ namespace StudentGradesManagement.Forms
         {
             System.Diagnostics.Process.Start("https://github.com/MitrachePatricia");
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
