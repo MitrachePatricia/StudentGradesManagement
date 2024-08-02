@@ -183,7 +183,7 @@ namespace StudentGradesManagement
 
         private void lvStudent_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+                
         }
 
         private void lvStudent_MouseDoubleClick(object sender, MouseEventArgs e)

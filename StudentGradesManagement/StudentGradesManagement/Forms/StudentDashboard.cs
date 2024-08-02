@@ -137,5 +137,10 @@ namespace StudentGradesManagement.Forms
         {
 
         }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }
